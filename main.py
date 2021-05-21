@@ -7,8 +7,8 @@ class Calculator:
         number_buttons = dict()
         root = tk.Tk()
         root.title("Calculator")
-        self.main_text = tk.Entry(root, width=54, textvariable=self.input_text)
-        self.main_text.grid(column=1, row=1, columnspan=4)
+        self.main_text = tk.Entry(root, width=70, textvariable=self.input_text)
+        self.main_text.grid(column=1, row=1, columnspan=5)
         counter = 1
         for button_number in range(10):  # making number buttons
 
@@ -38,21 +38,27 @@ class Calculator:
                                     command=lambda: self.insert("/"))
         multiply_button.grid(column=4, row=6, sticky="ewns")
         log_button = tk.Button(root, text="log",
-                               command=lambda: self.insert("log"))
-        log_button.grid(column=1, row=2, sticky="ewns")
+                               command=lambda: self.insert("log("))
+        log_button.grid(column=5, row=2, sticky="ewns")
+        pran1_button = tk.Button(root, text="(",
+                               command=lambda: self.insert("("))
+        pran1_button.grid(column=1, row=2, sticky="ewns")
+        pran2_button = tk.Button(root, text=")",
+                                 command=lambda: self.insert(")"))
+        pran2_button.grid(column=2, row=2, sticky="ewns")
         delete_button = tk.Button(root, text="<--",
                                   command=lambda: self.insert("<--"))
-        delete_button.grid(column=4, row=5, sticky="ewns")
+        delete_button.grid(column=3, row=2, sticky="ewns")
         clean_button = tk.Button(root, text="C",
                                  command=lambda: self.insert("clean"), bg="yellow")
         clean_button.grid(column=4, row=2, sticky="ewns")
         power_button = tk.Button(root, text="^",
                                  command=lambda: self.insert("^"))
-        power_button.grid(column=3, row=2, sticky="ewns")
+        power_button.grid(column=4, row=5, sticky="ewns")
         sqr_button = tk.Button(root, text="sqr",
                                command=lambda: self.insert("sqr("))
-        sqr_button.grid(column=2, row=2, sticky="ewns")
-        self.main_text.insert(tk.END, "this is gonna be our calculator\nin three \n lines\n")
+        sqr_button.grid(column=5, row=5, sticky="ewns")
+        #self.main_text.insert(tk.END, "this is gonna be our calculator\nin three \n lines\n")
 
         root.mainloop()
 
