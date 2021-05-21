@@ -50,18 +50,26 @@ class Calculator:
                                  command=lambda: self.insert("^"))
         power_button.grid(column=3, row=2, sticky="ewns")
         sqr_button = tk.Button(root, text="sqr",
-                               command=lambda: self.insert("sqr"))
+                               command=lambda: self.insert("sqr("))
         sqr_button.grid(column=2, row=2, sticky="ewns")
         self.main_text.insert(tk.END, "this is gonna be our calculator\nin three \n lines\n")
 
         root.mainloop()
 
     def insert(self, button):
-        current_text = self.input_text
-        print(button)
-        # self.main_text.delete("1.0","end")
-        # self.main_text.insert(tk.END,current_text+str(button))
-        # self.input_text
+        if button =="clean":
+            self.main_text.delete(0, tk.END)
+        elif button=="<--":
+            current_text = self.main_text.get()[:-1]
+            self.main_text.delete(0, tk.END)
+            self.main_text.insert(0,current_text)
+        else:
+            current_text = self.main_text.get()
+            self.main_text.delete(0,tk.END)
+            self.main_text.insert(0,current_text + str(button))
+            # self.main_text.delete("1.0","end")
+            # self.main_text.insert(tk.END,current_text+str(button))
+            # self.input_text
 
 
 calc1 = Calculator()
