@@ -6,7 +6,15 @@ class Parse:
         self.inner_parts = list()
         self.operators = list()
         self.paranteses = list()
-        self.scam()
+        self.blocks=list()
+        if self.scam() is not None:
+            pass
+
+    def scan(self):
+        for block in self.blocks:
+            for index in range(block[0],block[1]+1):
+                pass
+
 
     def scam(self):
         counter_open = 0
@@ -34,8 +42,11 @@ class Parse:
                     if block.intersection(blocks[I])== block:
                         final_blocks.remove(blocks[I])
         final_blocks1 = [[sorted(list(block))[0], sorted(list(block))[len(block)-1]] for block in final_blocks]
-        print(final_blocks1)
-
+        self.blocks=final_blocks1
+        if len(final_blocks1)!=0:
+            return True
+        else:
+            return None
 
 par1 = Parse("35*(4578(25*6)+8754)+56log(545/23)")
 print(par1.paranteses)
