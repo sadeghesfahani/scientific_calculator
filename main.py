@@ -11,8 +11,9 @@ class Calculator:
         self.main_text.grid(column=1, row=1, columnspan=4)
         counter = 1
         for button_number in range(10):  # making number buttons
+
             number_buttons[button_number] = tk.Button(root, text=button_number,
-                                                      command=lambda: self.insert(button_number))
+                                                      command=lambda txt = button_number: self.insert(txt))
             if button_number == 0:
                 (column, row) = (1, 8)
             else:
@@ -57,9 +58,10 @@ class Calculator:
 
     def insert(self, button):
         current_text = self.input_text
+        print(button)
         # self.main_text.delete("1.0","end")
         # self.main_text.insert(tk.END,current_text+str(button))
-        self.input_text
+        # self.input_text
 
 
 calc1 = Calculator()
