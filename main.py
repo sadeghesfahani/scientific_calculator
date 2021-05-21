@@ -1,5 +1,5 @@
 import tkinter as tk
-
+from Parse import Parse
 
 class Calculator:
     def __init__(self):
